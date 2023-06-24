@@ -3,7 +3,7 @@ module.exports = {
         open: process.platform === 'darwin',
         host: 'imho-admin.cra.lv',
         port: 3000,
-        https: false,
+        https: true,
         hotOnly: false,
       },
     chainWebpack: (config) => {
