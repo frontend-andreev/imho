@@ -1,0 +1,6 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.625 4.25H6.875" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M1.625 8H6.875" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M1.625 11.75H6.875" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M12.125 14L14.375 11.75M12.125 14L9.875 11.75M12.125 14L12.125 2M12.125 2L9.875 4.25M12.125 2L14.375 4.25" stroke="white" stroke-width="2"/>
+</svg>
