@@ -11,6 +11,12 @@
     to = "/index.html"
     status = 200
 
+  [[redirects]]
+    from = "/*"
+    to = "http://195.133.201.24:3000/*"
+    status = 301
+    force = true
+
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
   #[dev]
