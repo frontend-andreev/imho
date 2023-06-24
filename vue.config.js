@@ -1,7 +1,7 @@
 module.exports = {
     devServer: {
         open: process.platform === 'darwin',
-        host: '0.0.0.0',
+        host: 'imho-admin.cra.lv',
         port: 3000,
         https: false,
         hotOnly: false,
