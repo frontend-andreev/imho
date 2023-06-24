@@ -3,7 +3,7 @@ import Vue from 'vue';
 
 export default {
     GET_AUTHORS_FROM_API({ commit }) {
-        return axios(Vue.prototype.$hostname + '/authors', {
+        return axios(Vue.prototype.$hostname + '/authors/', {
                 method: 'GET'
             })
             .then(response => {
@@ -11,7 +11,7 @@ export default {
             })
     },
     GET_PUBLICATIONS_FROM_API({ commit }) {
-        return axios(Vue.prototype.$hostname + '/publications', {
+        return axios(Vue.prototype.$hostname + '/publications/', {
                 method: 'GET'
             })
             .then(response => {
@@ -19,7 +19,7 @@ export default {
             })
     },
     GET_THEMES_FROM_API({ commit }) {
-        return axios(Vue.prototype.$hostname + '/themes', {
+        return axios(Vue.prototype.$hostname + '/themes/', {
                 method: 'GET'
             })
             .then(response => {
@@ -27,7 +27,7 @@ export default {
             })
     },
     GET_ARCHIVE_FROM_API({ commit }) {
-        return axios(Vue.prototype.$hostname + '/archivePublications', {
+        return axios(Vue.prototype.$hostname + '/archivePublications/', {
                 method: 'GET'
             })
             .then(response => {

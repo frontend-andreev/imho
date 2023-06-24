@@ -28,7 +28,7 @@ export default {
         vm.$router.push({ name: 'Login' })
     },
     GET_USERS_FROM_API({ commit }) {
-        return axios(Vue.prototype.$hostname + '/users', {
+        return axios(Vue.prototype.$hostname + '/users/', {
                 method: 'GET'
             })
             .then(response => {
@@ -37,7 +37,7 @@ export default {
             })
     },
     CREATE_USER({ state }, user) {
-        axios.post(Vue.prototype.$hostname + '/users', user).then(() => {
+        axios.post(Vue.prototype.$hostname + '/users/', user).then(() => {
 
         alert('Успешно')
         }).catch(error => {
@@ -49,7 +49,7 @@ export default {
     },
     CHANGE_USER({ s }, user) {
         console.log(s);
-        fetch(Vue.prototype.$hostname + `/users`, {
+        fetch(Vue.prototype.$hostname + `/users/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
