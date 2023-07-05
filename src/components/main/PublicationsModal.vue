@@ -2,26 +2,26 @@
   <div class="publications-modal">
     <div class="publications-modal__content">
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>ID</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p>{{ currentArticle.id }}</p>
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Заголовок</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p>{{ currentArticle.title }}</p>
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Автор</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img
@@ -69,18 +69,18 @@
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Создано</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p>{{ currentArticle.created }}</p>
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Страны</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <ul class="main-table__list">
             <li
               v-for="country in currentArticle.availableCountries"
@@ -102,10 +102,10 @@
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Дата публикации</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p>
             {{ currentArticle.publish[0] }}
             {{ currentArticle.publish[1] }}
@@ -113,10 +113,10 @@
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Статус</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p
             v-if="currentArticle.status == 'approved'"
             class="publications-modal__status publications-modal__status_green"
@@ -138,18 +138,18 @@
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Причина</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <p>{{ currentArticle.reason || "-" }}</p>
         </div>
       </div>
       <div class="publications-modal__row">
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Тип</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <ul class="main-table__list">
             <li v-for="elem in currentArticle.type" :key="elem">
               <div class="main-table__icon publications-approved-table__type">
@@ -168,10 +168,10 @@
         class="publications-modal__row"
         v-if="UserById(currentArticle.moderId)"
       >
-        <div class="publications-modal__parameter">
+        <div class="publications-modal__parameter main-table__column">
           <p>Модератор</p>
         </div>
-        <div class="publications-modal__value">
+        <div class="publications-modal__value main-table__column">
           <div class="publications-modal__moderator">
             <img src="@/assets/images/users/avatar1.png" alt="" />
             <p>
@@ -218,7 +218,6 @@ export default {
           ".publications-modal"
         );
         let parent = this.Container;
-        // Удаляем у всех модалок классы "_right" и "_left"
         if (this.position == "top") {
           child.classList.add("publications-modal_top");
           return;
@@ -253,40 +252,90 @@ export default {
 .publications-modal {
   position: absolute;
   top: -50px;
-  // left: 100%;
   padding: 8px;
   width: 400px;
   z-index: 999;
   background: #fff;
   border: 2px solid #b90c0c;
   border-radius: 8px;
+  &__content {
+    position: relative;
+    padding: 4px;
+    width: 100%;
+    &:after {
+      content: "";
+      left: -32px;
+      top: 60px;
+      background: #fff;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+      border-right-color: #b90c0c;
+      border-bottom-color: #b90c0c;
+      border-bottom-right-radius: 15px;
+      transform: rotate(135deg);
+      height: 44px;
+      width: 44px;
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    &:first-child {
+      .publications-modal__parameter {
+        border-top-left-radius: 8px;
+      }
+      .publications-modal__value {
+        border-top-right-radius: 8px;
+      }
+    }
+    &:last-child {
+      .publications-modal__parameter {
+        border-bottom-left-radius: 8px;
+      }
+      .publications-modal__value {
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+  &__parameter {
+    font-weight: 700;
+    justify-content: start;
+  }
+  &__value {
+    font-weight: 500;
+  }
+  &__parameter,
+  &__value {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    p {
+      color: #353132;
+      font-size: 11px !important;
+    }
+  }
   &_right {
     left: 100%;
     .publications-modal__content {
-      &::after,
-      &::before {
-        right: 102.1%;
-      }
       &::after {
-        border-right-color: #fff;
-      }
-      &::before {
-        border-right-color: #b90c0c;
+        content: "";
+        left: -32.1px;
+        top: 60px;
+        transform: rotate(135deg);
       }
     }
   }
   &_left {
-    right: 100%;
+    right: 100% !important;
     .publications-modal__content {
-      &::after,
-      &::before {
-        left: 102.1%;
-      }
       &::after {
-        border-left-color: #fff;
-      }
-      &::before {
-        border-left-color: #b90c0c;
+        left: unset;
+        right: -32.1px !important;
+        top: 60px;
+        transform: rotate(-45deg);
       }
     }
   }
@@ -308,53 +357,6 @@ export default {
         border-width: 31px;
         margin-top: -31px;
       }
-    }
-  }
-  &__content {
-    position: relative;
-    padding: 4px;
-    width: 100%;
-    &:after,
-    &:before {
-      top: 60px;
-      border: solid transparent;
-      content: "";
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-    }
-
-    &:after {
-      border-color: rgba(136, 183, 213, 0);
-      border-width: 30px;
-      margin-top: -30px;
-    }
-    &:before {
-      border-color: rgba(194, 225, 245, 0);
-      border-width: 32px;
-      margin-top: -32px;
-    }
-  }
-  &__row {
-    display: grid;
-    grid-template-columns: 2fr 4fr;
-  }
-  &__parameter {
-    font-weight: 700;
-  }
-  &__value {
-    font-weight: 500;
-  }
-  &__parameter,
-  &__value {
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border: 1px solid #c0c0c0;
-    p {
-      color: #353132;
-      font-size: 11px !important;
     }
   }
   &__status {

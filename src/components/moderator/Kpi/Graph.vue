@@ -28,6 +28,7 @@ export default {
               },
               gridLines: {
                 display: false,
+                offsetGridLines: true,
                 drawOnChartArea: false,
               },
             },
@@ -47,7 +48,9 @@ export default {
                 },
               },
               gridLines: {
-                display: false,
+                display: true,
+                offsetGridLines: true,
+                color: 'red'
               },
             },
           ],

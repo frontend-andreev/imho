@@ -7,9 +7,11 @@
     />
     <input
       :disabled="isDisabled"
+      :readonly="readonly"
       type="text"
       :value="value != '' ? value : search"
-      @input="onChange"
+      @click="readonly ? onChange($event) : null"
+      @input="readonly ? null : onChange($event)"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.enter="onEnter"
@@ -77,6 +79,11 @@ export default {
       require: true,
       default: 0,
     },
+    readonly: {
+      tyoe: Boolean,
+      require: false,
+      default: false
+    }
   },
   components: {
     CloseIcon,
@@ -119,6 +126,7 @@ export default {
       });
     },
     onChange(event) {
+      console.log(event);
       this.search = event.target.value;
       if (this.isAsync) {
         this.isLoading = true;
@@ -167,7 +175,7 @@ export default {
   border-radius: 8px;
   padding: 0;
   margin: 0;
-  border: 1px solid #C0C0C0;
+  border: 1px solid #c0c0c0;
   max-height: 200px;
   width: 300px;
   background: #fff;
@@ -185,7 +193,7 @@ export default {
   cursor: pointer;
 }
 .autocomplete__input::placeholder {
-  color: #C0C0C0;
+  color: #c0c0c0;
 }
 .autocomplete-result {
   list-style: none;

@@ -71,6 +71,13 @@ ul {
     background-size: contain;
 }
 
+/* CALENDAR */
+
+.vc-arrows-container {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* Dark mode */
 
 .dark {
@@ -85,6 +92,7 @@ ul {
     background: #000;
     color: #fff;
 }
+
 .dark p,
 .dark li,
 .dark h2,
@@ -178,7 +186,7 @@ ul {
 }
 
 .dark .main-table__column {
-    box-shadow: 0 0 0 1px #6F6F6F;
+    box-shadow: 0 0 0 .5px #6F6F6F;
 }
 
 .dark .main-line {
@@ -384,7 +392,7 @@ canvas {
 }
 
 .main-table_white .main-table__column {
-    box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 .8px #fff;
 }
 
 .main-table_white {
@@ -406,7 +414,12 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 0 1px #C0C0C0;
+    box-shadow: 0 0 0 .5px #C0C0C0;
+}
+
+.main-table__column:nth-child(2) {
+    text-align: left;
+    justify-content: start;
 }
 
 .main-table__icon {

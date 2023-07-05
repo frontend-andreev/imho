@@ -10,13 +10,15 @@
         :key="item.search"
       >
         <AutoComplete
-          class="moderator-search__input"
+          class="moderator-search__input moderator-search__input_filter"
+          :readonly="true"
           :isDisabled="item.search != '' ? true : false"
           :value="item.search"
           @select="select($event, item, 'search')"
           :items="['Автор', 'Заголовок', 'ID', 'Модератор', 'Дата']"
-          :placeholder="'Поиск по...'"
-        />
+          :placeholder="'Поиск по...'" 
+
+          />
         <AutoComplete
           class="moderator-search__input"
           :class="{ 'moderator-search__input_disable': item.result != '' }"
@@ -93,6 +95,12 @@ export default {
     padding: 2px 8px;
     border: 1px solid #c0c0c0;
     border-radius: 8px;
+    &_filter {
+      input {
+        cursor: pointer;
+      }
+
+    }
     &_disable {
       border-color: #231f20;
       display: flex;

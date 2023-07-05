@@ -198,13 +198,57 @@
     <div class="header-body">
       <div class="container">
         <div class="header-body__content">
-          <div class="header-body__block">
-            <router-link
-              :to="{ name: 'AdminAnalyticsPage' }"
-              class="header-body__button"
+          <div class="header-body__block header-body__block_relative">
+            <p
+              class="header-body__button" 
+              @click="showDropDown = !showDropDown"
             >
-              Аналитика <arrowDownIcon />
-            </router-link>
+              Аналитика
+              <arrowDownIcon />
+            </p>
+            <ul class="header-body__dropdown" :class="{'header-body__dropdown_active': showDropDown}">
+              <li class="header-body__link">
+                <router-link
+                  :to="{ name: 'AdminAnalyticsPage' }"
+                  class="header-body__button"
+                >
+                  Аналитика
+                </router-link>
+              </li>
+              <li class="header-body__link">
+                <router-link
+                  :to="{
+                    name: 'AdminAnalyticsAuthorsPage',
+                    query: { filter: 'authors' },
+                  }"
+                  class="header-body__button"
+                >
+                  Автор
+                </router-link>
+              </li>
+              <li class="header-body__link">
+                <router-link
+                  :to="{
+                    name: 'AdminAnalyticsPublicationsPage',
+                    query: { filter: 'publications' },
+                  }"
+                  class="header-body__button"
+                >
+                  Публикации
+                </router-link>
+              </li>
+              <li class="header-body__link">
+                <router-link
+                  :to="{
+                    name: 'AdminAnalyticsUsersPage',
+                    query: { filter: 'users' },
+                  }"
+                  class="header-body__button"
+                >
+                  Пользователи
+                </router-link>
+              </li>
+            </ul>
           </div>
           <div class="header-body__block">
             <router-link
@@ -246,6 +290,7 @@ export default {
       ],
       burgerIsOpen: false,
       night: false,
+      showDropDown: false
     };
   },
   computed: {
@@ -374,7 +419,6 @@ export default {
       right: 0;
       z-index: 999;
       border-radius: 16px;
-      transition: all 0.5s;
       max-width: 400px;
       &.active {
         transform: translateY(0);
@@ -476,9 +520,45 @@ export default {
         margin-right: 16px;
       }
     }
+    &__dropdown {
+      position: absolute;
+      top: 0;
+      background: #231f20;
+      z-index: 999;
+      padding: 10px;
+      border-radius: 8px;
+      top: 35px;
+      transform: translateY(-300px);
+      &_active {
+        transform: translateY(0);
+      }
+    }
+    &__link {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .header-body__button {
+        padding: 3px;
+        &:hover,
+        &.router-link-active {
+          color: #fff;
+          background: #e11b1b;
+          border-radius: 8px;
+        }
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+      }
+    }
     &__block {
       display: flex;
       align-items: center;
+      p {
+        cursor: pointer;
+      }
+      &_relative {
+        position: relative;
+      }
     }
     @media screen and (min-width: 744px) and (max-width: 1280px) {
       &__button {

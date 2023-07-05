@@ -8,6 +8,8 @@
     :rows="layout.rows"
     :columns="layout.columns"
     :is-dark="checkMode"
+    :weekday-format="1232"
+    :first-day-of-week=2
   >
     <template v-slot="{ inputValue, inputEvents }">
       <div class="period main-color">
@@ -71,8 +73,17 @@ export default {
       getRange: "Main/getRange",
     }),
     checkMode() {
-      return document.body.classList.contains('dark')
-    }
+      console.log(12323);
+      return document.body.classList.contains("dark");
+    },
+  },
+  methods: {
+    getCustomDay(date) {
+      const daysOfWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+      let i = new Date(date).getDay(date);
+      console.log(i);
+      return daysOfWeek[i];
+    },
   },
   watch: {
     getRange(newValue) {
