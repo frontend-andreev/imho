@@ -71,6 +71,11 @@ ul {
     background-size: contain;
 }
 
+/* CALENDAR */
+.weekday-position-6, .weekday-position-7 {
+    color: #C0C0C0
+}
+
 /* Dark mode */
 
 .dark {

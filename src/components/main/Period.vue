@@ -8,8 +8,8 @@
     :rows="layout.rows"
     :columns="layout.columns"
     :is-dark="checkMode"
-    :disabled-dates="{ weekdays: [1, 7] }"
-  >
+    :weekdays="7"
+    >
     <template v-slot="{ inputValue, inputEvents }">
       <div class="period main-color">
         <div class="period__text">
@@ -59,11 +59,13 @@ export default {
         start: "",
         end: "",
       },
+      disabledBefore: new Date(2023, 7, 2),
+      disabledAfter: new Date(2023, 7, 6),
       masks: {
         input: "DD.MM.YYYY",
       },
       attr: {
-        highlight: "red",
+        highlight: "green",
       },
     };
   },
