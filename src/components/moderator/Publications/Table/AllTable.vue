@@ -50,7 +50,7 @@
         <div class="publications-all-table__value main-table__column">
           <p>{{ item.id.toLocaleString() }}</p>
         </div>
-        <div class="publications-all-table__value main-table__column">
+        <div class="publications-all-table__value main-table__title main-table__column">
           <p>{{ item.title }}</p>
         </div>
         <div class="publications-all-table__value main-table__column">
@@ -121,19 +121,19 @@
         <div class="publications-all-table__value main-table__column">
           <p
             v-if="item.status == 'approved'"
-            class="publications-all-table__status publications-all-table__status_green"
+            class="publications-all-table__status main-table__status_green"
           >
             Одобрено
           </p>
           <p
             v-else-if="item.status == 'rejected'"
-            class="publications-all-table__status publications-all-table__status_red"
+            class="publications-all-table__status main-table__status_red"
           >
             Не одобрено
           </p>
           <p
             v-else-if="item.status == 'undefined'"
-            class="publications-all-table__status publications-all-table__status_purple"
+            class="publications-all-table__status main-table__status_purple"
           >
             Новый
           </p>
@@ -279,15 +279,6 @@ export default {
   &__status {
     text-transform: uppercase;
     font-weight: 700 !important;
-    &_green {
-      color: #009688;
-    }
-    &_red {
-      color: #e11b1b;
-    }
-    &_purple {
-      color: #7b61ff;
-    }
   }
   @media screen and (min-width: 1280px) and (max-width: 1599px) {
     &__row {

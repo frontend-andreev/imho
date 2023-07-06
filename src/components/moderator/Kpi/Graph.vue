@@ -28,7 +28,6 @@ export default {
               },
               gridLines: {
                 display: false,
-                offsetGridLines: true,
                 drawOnChartArea: false,
               },
             },
@@ -48,9 +47,7 @@ export default {
                 },
               },
               gridLines: {
-                display: true,
-                offsetGridLines: true,
-                color: 'red'
+                display: false,
               },
             },
           ],
@@ -67,14 +64,6 @@ export default {
     };
   },
   computed: {
-    getValues() {
-      let res = [];
-
-      this.labels.forEach(() => {
-        res.push(2000);
-      });
-      return res;
-    },
     labels() {
       let period = this.$route.query.period;
       if (period == "week") {
@@ -174,7 +163,6 @@ export default {
           labels: this.labels,
           datasets: [
             {
-              label: "Red Sales",
               data: this.values.bottom,
               backgroundColor: "#B5E2F5",
               borderWidth: 1,

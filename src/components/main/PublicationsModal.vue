@@ -119,19 +119,19 @@
         <div class="publications-modal__value main-table__column">
           <p
             v-if="currentArticle.status == 'approved'"
-            class="publications-modal__status publications-modal__status_green"
+            class="publications-modal__status main-table__status_green"
           >
             Одобрено
           </p>
           <p
             v-else-if="currentArticle.status == 'rejected'"
-            class="publications-modal__status publications-modal__status_red"
+            class="publications-modal__status main-table__status_red"
           >
             Не одобрено
           </p>
           <p
             v-else-if="currentArticle.status == 'undefined'"
-            class="publications-modal__status publications-modal__status_purple"
+            class="publications-modal__status main-table__status_purple"
           >
             Новый
           </p>
@@ -305,7 +305,9 @@ export default {
     justify-content: start;
   }
   &__value {
+    text-align: left;
     font-weight: 500;
+    justify-content: start;
   }
   &__parameter,
   &__value {

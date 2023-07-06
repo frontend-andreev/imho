@@ -33,7 +33,9 @@
         <div class="publications-rejected-table__value main-table__column">
           <p>{{ item.id.toLocaleString() }}</p>
         </div>
-        <div class="publications-rejected-table__value main-table__column">
+        <div
+          class="publications-rejected-table__value main-table__title main-table__column"
+        >
           <p>{{ item.title }}</p>
         </div>
         <div class="publications-rejected-table__value main-table__column">

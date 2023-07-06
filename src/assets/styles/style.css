@@ -71,13 +71,6 @@ ul {
     background-size: contain;
 }
 
-/* CALENDAR */
-
-.vc-arrows-container {
-    width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-}
 /* Dark mode */
 
 .dark {
@@ -417,13 +410,28 @@ canvas {
     box-shadow: 0 0 0 .5px #C0C0C0;
 }
 
-.main-table__column:nth-child(2) {
+.main-table__title {
     text-align: left;
     justify-content: start;
 }
 
 .main-table__icon {
     margin-right: 2px;
+}
+
+.main-table__status_green {
+    color: #009688 !important;
+
+}
+
+.main-table__status_red {
+    color: #e11b1b !important;
+
+}
+
+.main-table__status_purple {
+    color: #7b61ff !important;
+
 }
 
 .main-table__text {
@@ -444,7 +452,7 @@ canvas {
     flex-wrap: wrap;
     row-gap: 5px;
     column-gap: 7px;
-    justify-content: start;
+    justify-content: center;
 }
 
 .main-table__list_direction {

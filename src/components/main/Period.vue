@@ -8,8 +8,7 @@
     :rows="layout.rows"
     :columns="layout.columns"
     :is-dark="checkMode"
-    :weekday-format="1232"
-    :first-day-of-week=2
+    :disabled-dates="{ weekdays: [1, 7] }"
   >
     <template v-slot="{ inputValue, inputEvents }">
       <div class="period main-color">

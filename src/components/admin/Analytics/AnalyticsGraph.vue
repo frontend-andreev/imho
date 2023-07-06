@@ -5,7 +5,11 @@ export default {
   data() {
     return {
       options: {
-        layout: {},
+        layout: {
+          padding: {
+            right: 4 
+          }
+        },
         elements: {
           point: {
             radius: 3,
@@ -30,7 +34,7 @@ export default {
                 labelOffset: 12
               },
               gridLines: {
-                display: true,
+                display: false,
                 drawOnChartArea: false,
               },
             },
@@ -61,7 +65,7 @@ export default {
     this.renderChart(
       {
         labels: ["1", "2", "3"],
-        datasets: [
+        datasets: [ 
           {
             data: [1000, 1900, 2000],
             fill: true,

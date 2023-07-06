@@ -21,7 +21,7 @@
         <div
           class="publications-archive-table__parameter main-table__column main-table__column_abridged"
         >
-          <p>Дата публикации</p>
+          <p>Дата публ.</p>
         </div>
         <div class="publications-archive-table__parameter main-table__column">
           <p>Статус</p>
@@ -50,7 +50,7 @@
         <div class="publications-archive-table__value main-table__column">
           <p>{{ item.id.toLocaleString() }}</p>
         </div>
-        <div class="publications-archive-table__value main-table__column">
+        <div class="publications-archive-table__value main-table__title main-table__column">
           <p>{{ item.title }}</p>
         </div>
         <div class="publications-archive-table__value main-table__column">
@@ -121,19 +121,19 @@
         <div class="publications-archive-table__value main-table__column">
           <p
             v-if="item.status == 'approved'"
-            class="publications-archive-table__status publications-archive-table__status_green"
+            class="publications-archive-table__status main-table__status_green"
           >
             Одобрено
           </p>
           <p
             v-else-if="item.status == 'rejected'"
-            class="publications-archive-table__status publications-archive-table__status_red"
+            class="publications-archive-table__status main-table__status_red"
           >
             Не одобрено
           </p>
           <p
             v-else-if="item.status == 'undefined'"
-            class="publications-archive-table__status publications-archive-table__status_purple"
+            class="publications-archive-table__status main-table__status_purple"
           >
             Новый
           </p>
