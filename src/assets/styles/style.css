@@ -72,14 +72,46 @@ ul {
 }
 
 /* CALENDAR */
-.weekday-position-6, .weekday-position-7 {
-    color: #C0C0C0
+
+.vc-weekday {
+    text-transform: uppercase;
+    color: #353132 !important;
+}
+
+.vc-weekday:nth-child(6),
+.vc-weekday:nth-child(7),
+.weekday-position-6,
+.weekday-position-7 {
+    color: #C0C0C0 !important;
+}
+
+
+.vc-day.is-not-in-month span {
+    color: #E2E2E2 !important;
+    opacity: 1 !important;
+    pointer-events: inherit !important;
 }
 
 /* Dark mode */
 
 .dark {
     background: #000;
+}
+.dark .vc-weekday {
+    color: #fff !important; 
+}
+.vc-container.vc-is-dark {
+    background: #000;
+}
+.dark .vc-weekday:nth-child(6),
+.dark .vc-weekday:nth-child(7),
+.dark .weekday-position-6,
+.dark .weekday-position-7 {
+    color: #6F6F6F !important;
+}
+
+.dark .vc-day.is-not-in-month span {
+    color: #353132 !important;
 }
 
 .dark .footer__logo {
