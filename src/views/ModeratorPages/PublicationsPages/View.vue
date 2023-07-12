@@ -17,6 +17,11 @@ export default {
     Editor,
     Header
   },
+  methods: {
+    check(n) {
+      console.log(n);
+    }
+  }
 };
 </script>
 <style lang="scss">

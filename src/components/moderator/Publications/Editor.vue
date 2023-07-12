@@ -515,8 +515,11 @@ export default {
   &__row {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
     column-gap: 10px;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+
+    }
     &.main-line {
       display: flex;
       justify-content: space-between;

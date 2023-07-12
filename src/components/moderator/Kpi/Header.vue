@@ -128,11 +128,6 @@ export default {
       &:last-child {
         justify-self: flex-end;
       }
-      &:first-child {
-        .main-filter {
-          max-width: 340px;
-        }
-      }
     }
   }
   @media screen and (min-width: 320px) and (max-width: 744px) {

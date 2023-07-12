@@ -60,12 +60,12 @@ export default {
       },
       masks: {
         input: "DD.MM.YYYY",
-        title: 'MMMM',
-        weekdays: 'WW',
-        monthday: 'Do'
+        title: "MMMM",
+        weekdays: "WW",
+        monthday: "Do",
       },
       attr: {
-        highlight: "green",
+        highlight: 'green'
       },
     };
   },
@@ -97,6 +97,10 @@ export default {
 };
 </script>
 <style lang="scss">
+.vc-container {
+  --green-200: rgba(0, 150, 136, .22) !important;
+  --green-600: rgba(0, 150, 136, 1) !important;
+}
 .period {
   display: flex;
   align-items: center;

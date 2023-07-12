@@ -681,6 +681,9 @@ export default {
     opacity: 0;
     position: absolute;
   }
+  .main-table__list {
+    justify-content: start;
+  }
   @media screen and (min-width: 850px) and (max-width: 1600px) {
     &__row_grid {
       grid-template-columns: 1fr 5fr;

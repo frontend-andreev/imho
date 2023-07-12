@@ -73,6 +73,7 @@ ul {
 
 /* CALENDAR */
 
+
 .vc-weekday {
     text-transform: uppercase;
     color: #353132 !important;
@@ -97,12 +98,15 @@ ul {
 .dark {
     background: #000;
 }
+
 .dark .vc-weekday {
-    color: #fff !important; 
+    color: #fff !important;
 }
+
 .vc-container.vc-is-dark {
     background: #000;
 }
+
 .dark .vc-weekday:nth-child(6),
 .dark .vc-weekday:nth-child(7),
 .dark .weekday-position-6,
@@ -127,6 +131,7 @@ ul {
 .dark li,
 .dark h2,
 .dark h4,
+.dark h3,
 .dark h5,
 .dark label,
 .dark select,
@@ -136,7 +141,10 @@ ul {
 .dark .main-filter__button,
 .dark .main-submit button,
 .dark .publications-editor__button p,
-.dark .moderator-user-settings__title {
+.dark .moderator-user-settings__title,
+.dark .view-header__item span,
+.dark .view-footer__column span,
+.dark .article-author span {
     color: #fff !important
 }
 
@@ -166,7 +174,9 @@ ul {
 .dark .main-content,
 .dark .modal-date__content,
 .dark .period__item,
-.dark .header-top__filter {
+.dark .header-top__filter,
+.dark .publications-modal__content::after,
+.dark .preview {
     background: #000;
 }
 
@@ -176,17 +186,6 @@ ul {
     background: #fff;
 }
 
-.dark .publications-modal_left .publications-modal__content::after {
-    border-left-color: #000;
-}
-
-.dark .publications-modal_right .publications-modal__content::after {
-    border-right-color: #000;
-}
-
-.dark .publications-modal_top .publications-modal__content::after {
-    border-bottom-color: #000;
-}
 
 .dark .main-background {
     background: transparent;
@@ -552,6 +551,7 @@ canvas {
 
 .main-table-author__list li {
     padding: 2px 4px;
+    border-radius: 3px;
 }
 
 .main-table-author__list li :not(:last-child) {
@@ -604,8 +604,8 @@ canvas {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
 }
 
@@ -639,8 +639,8 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     background-color: #fff;
     border: 2px solid #231F20;
     border-radius: 8px;

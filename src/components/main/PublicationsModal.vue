@@ -155,7 +155,9 @@
               <div class="main-table__icon publications-approved-table__type">
                 <img
                   :src="
-                    require(`@/assets/images/icons/${elem.toLowerCase()}.svg`)
+                    Mode && elem.toLowerCase() == 'users'
+                      ? require(`@/assets/images/icons/${elem.toLowerCase()}White.svg`)
+                      : require(`@/assets/images/icons/${elem.toLowerCase()}.svg`)
                   "
                   alt=""
                 />
@@ -245,6 +247,9 @@ export default {
       UserById: "Users/getUserById",
       Container: "Main/getSizeOfContainer",
     }),
+    Mode() {
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
 };
 </script>
@@ -341,26 +346,25 @@ export default {
       }
     }
   }
-  &_top {
-    top: 100%;
-    .publications-modal__content {
-      &::after,
-      &::before {
-        top: -40px;
-        left: 30px;
-      }
-      &::after {
-        border-bottom-color: #fff;
-        border-width: 31px;
-        margin-top: -29px;
-      }
-      &::before {
-        border-bottom-color: #b90c0c;
-        border-width: 31px;
-        margin-top: -31px;
-      }
-    }
-  }
+  // &_top {
+  //   top: 100%;
+  //   .publications-modal__content {
+  //     &::after,
+  //     &::before {
+  //       top: -40px;
+  //       left: 30px;
+  //     }
+  //     &::after {
+  //       border-width: 31px;
+  //       margin-top: -29px;
+  //     }
+  //     &::before {
+  //       border-bottom-color: #b90c0c;
+  //       border-width: 31px;
+  //       margin-top: -31px;
+  //     }
+  //   }
+  // }
   &__status {
     text-transform: uppercase;
     font-weight: 700 !important;
