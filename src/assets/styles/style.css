@@ -652,7 +652,7 @@ canvas {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%) rotate(-5deg);
     width: 14px;
     height: 11px;
     background: url("../../assets/images/icons/mark.svg") no-repeat center;
