@@ -639,24 +639,24 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     background-color: #fff;
     border: 2px solid #231F20;
+    border-radius: 8px;
     transition: background-color 0.25s ease;
-    border-radius: 4px;
 }
 
 .main-checkbox .main-checkbox__checkmark:after {
     content: "";
     position: absolute;
-    left: 3px;
-    top: 1px;
-    width: 3px;
-    height: 6px;
-    border: solid #231F20;
-    border-width: 0 2px 2px 0;
-    transform: rotate(35deg);
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 14px;
+    height: 11px;
+    background: url("../../assets/images/icons/mark.svg") no-repeat center;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.25s ease;
 }

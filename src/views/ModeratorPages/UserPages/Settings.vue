@@ -220,6 +220,9 @@ export default {
       }
     }
   }
+  &__name ul {
+    justify-content: start;
+  }
   &__subtitle,
   &__name p:first-child {
     font-size: 24px;
@@ -292,18 +295,6 @@ export default {
     width: 20px;
     height: 20px;
     margin-left: 6px;
-    .main-checkbox__checkmark {
-      width: 20px;
-      height: 20px;
-      border-width: 1px;
-      border-radius: 8px;
-      &::after {
-        width: 5px;
-        height: 10px;
-        transform: rotate(30deg);
-        left: 5px;
-      }
-    }
   }
   @media screen and (min-width: 320px) and (max-width: 1280px) {
     &__title {
