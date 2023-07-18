@@ -5,7 +5,10 @@
         <h2 class="article-header__title">Модерация</h2>
       </div>
       <div class="article-header__block">
-        <button @click.prevent="goToLastPage" class="article-header__button button-red">
+        <button
+          @click.prevent="goToLastPage"
+          class="article-header__button button-red"
+        >
           Назад
         </button>
         <button class="article-header__button button-red">Сохранить</button>
@@ -15,15 +18,15 @@
 </template>
 <script>
 export default {
-    methods: {
-        goToLastPage() {
-            if (window.history.state == null) {
-                this.$router.push({name: 'ModeratorPublicationsTableNew'})
-            } else {
-                this.$router.go(-1)
-            }
-        }
-    }
+  methods: {
+    goToLastPage() {
+      if (window.history.state == null) {
+        this.$router.push({ name: "ModeratorPublicationsTableNew" });
+      } else {
+        this.$router.go(-1);
+      }
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -35,17 +38,19 @@ export default {
     justify-content: space-between;
   }
   &__block {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   &__button {
+    height: 100%;
+    border-radius: 8px;
+
     &:not(:last-child) {
       margin-right: 10px;
     }
     &:first-child {
       padding: 5px 8px;
       border: 1px solid #e11b1b;
-      border-radius: 8px;
     }
   }
 }

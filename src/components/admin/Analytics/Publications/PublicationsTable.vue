@@ -351,6 +351,11 @@ export default {
       line-height: 21px;
     }
   }
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    &__row {
+      grid-template-columns: 4fr 1fr 3fr 2fr repeat(7, 1fr);
+    }
+  }
   @media screen and (min-width: 320px) and (max-width: 1280px) {
     &__row {
       grid-template-columns: 4fr 1fr 4fr 2fr repeat(7, 1fr);

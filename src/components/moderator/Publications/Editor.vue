@@ -168,7 +168,7 @@
           </div>
         </div>
       </div>
-      <div class="publications-editor__row">
+      <div class="publications-editor__row publications-editor__row_direction-small">
         <div class="publications-editor__info">
           <p class="publications-editor__parameter">Тип</p>
           <div
@@ -280,7 +280,7 @@
               <div class="checkbox__body"></div>
             </div>
             <p class="publications-editor__date">17.06.2022</p>
-            <p class="publications-editor__date">17.06.2022</p>
+            <p class="publications-editor__date">13:55</p>
           </div>
         </div>
       </div>
@@ -296,7 +296,7 @@
               <div class="checkbox__body"></div>
             </div>
             <p class="publications-editor__date">17.06.2022</p>
-            <p class="publications-editor__date">17.06.2022</p>
+            <p class="publications-editor__date">13:55</p>
           </div>
         </div>
       </div>
@@ -661,7 +661,7 @@ export default {
     }
   }
   &__add {
-    width: 22px;
+    width: 25px;
     height: 22px;
     border: 1px solid #c0c0c0;
     border-radius: 4px;
@@ -769,9 +769,6 @@ export default {
         font-size: 12px;
       }
     }
-    &__input {
-      font-size: 10px;
-    }
     &__button {
       font-size: 12px;
     }
@@ -790,6 +787,14 @@ export default {
       li {
         width: 100%;
         justify-content: space-between;
+      }
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 500px) {
+    &__row {
+      &_direction-small {
+        flex-direction: column;
+        row-gap: 8px;
       }
     }
   }

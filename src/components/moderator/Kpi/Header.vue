@@ -133,7 +133,7 @@ export default {
   @media screen and (min-width: 320px) and (max-width: 744px) {
     &__column:first-child {
       .main-filter {
-        max-width: none;
+        display: inline-flex;
       }
     }
     &__filter {

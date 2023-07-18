@@ -432,7 +432,12 @@ canvas {
 .main-table_white .main-table__column {
     box-shadow: 0 0 0 .8px #fff;
 }
-
+.main-table_white .main-table__column:first-child {
+    border-top-left-radius: 8px;
+}
+.main-table_white .main-table__column:last-child {
+    border-top-right-radius: 8px;
+}
 .main-table_white {
     border-radius: 8px 8px 0px 0px;
     background: #b90c0c;
@@ -462,6 +467,7 @@ canvas {
 
 .main-table__icon {
     margin-right: 2px;
+    display: flex;
 }
 
 .main-table__status_green {
@@ -569,6 +575,7 @@ canvas {
 
 .main-table-author__list li p {
     font-size: 10px;
+    line-height: 10px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 500px) {
@@ -802,7 +809,7 @@ canvas {
     }
 
     .admin-table-employees__content {
-        width: 600px;
+        width: 700px;
     }
 
     .publications-new-table,

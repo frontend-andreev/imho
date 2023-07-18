@@ -38,6 +38,7 @@ export default {
                 display: true,
                 maxRotation: 0,
                 fontSize: this.$route.query.period != "month" ? 12 : 8,
+                fontColor: document.querySelector('body').classList.contains('dark') ? '#fff' : '#231F20',
                 callback: function (label) {
                   if (/\s/.test(label)) {
                     return label.split(" ");
@@ -54,6 +55,9 @@ export default {
         },
         legend: {
           display: false,
+          labels: {
+            fontColor: 'red'
+          }
         },
         tooltips: {
           enabled: false,
@@ -165,9 +169,10 @@ export default {
             {
               data: this.values.bottom,
               backgroundColor: "#B5E2F5",
+              color: 'red',
               borderWidth: 1,
               categoryPercentage: 1,
-              borderRadius: 15,
+              borderRadius: 100,
             },
             {
               label: this.labels,

@@ -308,7 +308,7 @@ export default {
   &__parameter {
     font-weight: 700;
     justify-content: start;
-    text-align-last: left;
+    text-align: left;
   }
   &__value {
     text-align: left;

@@ -268,7 +268,6 @@ export default {
   <style lang="scss">
 .analytics-authors-table {
   &__top {
-    background: #b90c0c;
     color: #fff;
   }
   &__row {
