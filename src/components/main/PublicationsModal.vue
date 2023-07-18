@@ -308,6 +308,7 @@ export default {
   &__parameter {
     font-weight: 700;
     justify-content: start;
+    text-align-last: left;
   }
   &__value {
     text-align: left;
@@ -346,25 +347,20 @@ export default {
       }
     }
   }
-  // &_top {
-  //   top: 100%;
-  //   .publications-modal__content {
-  //     &::after,
-  //     &::before {
-  //       top: -40px;
-  //       left: 30px;
-  //     }
-  //     &::after {
-  //       border-width: 31px;
-  //       margin-top: -29px;
-  //     }
-  //     &::before {
-  //       border-bottom-color: #b90c0c;
-  //       border-width: 31px;
-  //       margin-top: -31px;
-  //     }
-  //   }
-  // }
+  &_top {
+    right: 50% !important;
+    transform: translateX(50%);
+    top: 50%; 
+    .publications-modal__content {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+        right: unset;
+        top: -32.1px;
+        transform: rotate(-135deg);
+      }
+    }
+  }
   &__status {
     text-transform: uppercase;
     font-weight: 700 !important;

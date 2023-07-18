@@ -358,6 +358,7 @@ export default {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+  border-radius: 24px;
   &::-webkit-scrollbar {
     display: none;
   }

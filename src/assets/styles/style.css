@@ -127,6 +127,10 @@ ul {
     color: #fff;
 }
 
+.dark .view-footer__button button {
+    border-color: #fff;
+}
+
 .dark p,
 .dark li,
 .dark h2,
@@ -144,12 +148,15 @@ ul {
 .dark .moderator-user-settings__title,
 .dark .view-header__item span,
 .dark .view-footer__column span,
-.dark .article-author span {
+.dark .view-bottom__column span,
+.dark .article-author span,
+.dark .view-footer__button button {
     color: #fff !important
 }
 
 .dark .moderator-search__wrapper,
-.dark .autocomplete-results {
+.dark .autocomplete-results,
+.dark .view {
     background: #353132;
 }
 
@@ -176,7 +183,7 @@ ul {
 .dark .period__item,
 .dark .header-top__filter,
 .dark .publications-modal__content::after,
-.dark .preview {
+.dark .view-footer__button button {
     background: #000;
 }
 
@@ -187,7 +194,9 @@ ul {
 }
 
 
-.dark .main-background {
+.dark .main-background,
+.dark .preview,
+.dark .article__content {
     background: transparent;
 }
 
