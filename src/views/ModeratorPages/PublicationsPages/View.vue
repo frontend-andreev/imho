@@ -31,12 +31,7 @@ export default {
     grid-template-columns: 4fr 3fr;
     column-gap: 16px;
   }
-  @media screen and (min-width: 744px) and (max-width: 1280px) {
-    &__content {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media screen and (min-width: 320px) and (max-width: 744px) {
+  @media screen and (min-width: 320px) and (max-width: 850px) {
     &__content {
       display: flex;
       flex-direction: column;

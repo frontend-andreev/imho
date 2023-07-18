@@ -759,12 +759,18 @@ export default {
     }
   }
   @media screen and (min-width: 320px) and (max-width: 744px) {
+    p {
+      font-size: 12px;
+    }
     &__value,
     &__parameter {
-      font-size: 12px;
+      font-size: 12px !important;
       p {
         font-size: 12px;
       }
+    }
+    &__input {
+      font-size: 10px;
     }
     &__button {
       font-size: 12px;

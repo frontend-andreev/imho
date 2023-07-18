@@ -51,31 +51,31 @@
           <img src="@/assets/images/preview.png" alt="preview" />
         </div>
       </div>
-      <div class="view-footer">
-        <div class="view-footer__column">
+      <div class="view-bottom">
+        <div class="view-bottom__column">
           <span>#Украина</span>
         </div>
-        <div class="view-footer__column">
-          <div class="view-footer__item">
-            <div class="view-footer__icon">
+        <div class="view-bottom__column">
+          <div class="view-bottom__item">
+            <div class="view-bottom__icon">
               <HeartIcon />
             </div>
             <span>12</span>
           </div>
-          <div class="view-footer__item">
-            <div class="view-footer__icon">
+          <div class="view-bottom__item">
+            <div class="view-bottom__icon">
               <UsersIcon />
             </div>
             <span>12</span>
           </div>
-          <div class="view-footer__item">
-            <div class="view-footer__icon">
+          <div class="view-bottom__item">
+            <div class="view-bottom__icon">
               <CommentIcon />
             </div>
             <span>12</span>
           </div>
-          <div class="view-footer__item">
-            <div class="view-footer__icon">
+          <div class="view-bottom__item">
+            <div class="view-bottom__icon">
               <ShareIcon />
             </div>
           </div>
@@ -200,6 +200,57 @@
             зарабатывающий на людской беде, войнах и конфликтах.
           </p>
         </div>
+        <div class="view-footer">
+          <div class="view-footer__row">
+            <ul class="view-footer__column">
+              <li class="view-footer__tag">
+                <span>#Россия</span>
+              </li>
+              <li class="view-footer__tag">
+                <span>#Сирия</span>
+              </li>
+              <li class="view-footer__tag">
+                <span>#Турция</span>
+              </li>
+              <li class="view-footer__tag">
+                <span>#Украина</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="view-footer__icons view-footer__row">
+            <div class="view-footer__column">
+              <div class="view-footer__icon">
+                <Heart />
+                <span>12</span>
+              </div>
+              <div class="view-footer__icon">
+                <UsersIcon />
+                <span>12</span>
+              </div>
+              <div class="view-footer__icon">
+                <CommentIcon />
+                <span>12</span>
+              </div>
+            </div>
+            <div class="view-footer__column">
+              <div class="view-footer__icon">
+                <ShareIcon />
+              </div>
+              <div class="view-footer__icon">
+                <BookmarkEmptyIcon />
+              </div>
+            </div>
+          </div>
+          <div class="view-footer__buttons view-footer__row">
+            <div class="view-footer__button">
+              <button>Подписаться</button>
+            </div>
+            <div class="view-footer__button">
+              <button>Подписаться</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -208,6 +259,8 @@
 <script>
 import HeadphonesIcon from "@/assets/images/icons/headphones.svg?inline";
 import BookmarkIcon from "@/assets/images/icons/bookmark.svg?inline";
+import BookmarkEmptyIcon from "@/assets/images/icons/bookmarkEmpty.svg?inline";
+
 import DotsIcon from "@/assets/images/icons/dots.svg?inline";
 import HeartIcon from "@/assets/images/icons/heartFull.svg?inline";
 import UsersIcon from "@/assets/images/icons/users.svg?inline";
@@ -219,6 +272,7 @@ export default {
     HeadphonesIcon,
     DotsIcon,
     BookmarkIcon,
+    BookmarkEmptyIcon,
     HeartIcon,
     UsersIcon,
     CommentIcon,
@@ -289,6 +343,12 @@ export default {
     }
     &__text {
       font-size: 12px;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 500px) {
+    &-author {
+      flex-direction: column-reverse;
+      row-gap: 5px;
     }
   }
 }
@@ -368,6 +428,45 @@ export default {
   }
   &-footer {
     display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    &__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__column {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+    }
+    &__icon {
+      svg path {
+        fill: #353132;
+      }
+      span {
+        margin-left: 8px;
+      }
+    }
+    &__tag {
+      span {
+        font-size: 12px;
+        font-weight: 700;
+      }
+    }
+    &__icons .view-footer__column {
+      column-gap: 16px;
+    }
+    &__button button {
+      padding: 4px 8px;
+      color: #b90c0c;
+      border: 1px solid #b90c0c;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+  }
+  &-bottom {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     &__column {
@@ -384,6 +483,9 @@ export default {
     &__item {
       display: flex;
       align-items: center;
+      span {
+        margin-left: 8px;
+      }
       &:not(:last-child) {
         margin-right: 16px;
         .view-footer__icon {
@@ -415,12 +517,31 @@ export default {
       background: #ddffe4;
     }
   }
+  @media screen and (min-width: 850px) and (max-width: 1280px) {
+    height: 1358px;
+  }
+  @media screen and (min-width: 320px) and (max-width: 850px) {
+    height: 100%;
+    overflow-y: visible;
+  }
+  @media screen and (min-width: 320px) and (max-width: 500px) {
+    &-header {
+      &__item {
+        &:not(:last-child) {
+          margin-right: 8px;
+        }
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 .preview {
   background: #fff;
   padding: 16px;
   border-radius: 16px;
-  .view-footer {
+  .view-bottom {
     display: grid;
     grid-template-columns: 2fr 1fr;
     &__item:last-child {
@@ -448,6 +569,13 @@ export default {
       font-size: 12px;
       line-height: 18px;
       color: #353132;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 744px) {
+    &__content {
+      display: flex;
+      row-gap: 5px;
+      flex-direction: column;
     }
   }
 }
