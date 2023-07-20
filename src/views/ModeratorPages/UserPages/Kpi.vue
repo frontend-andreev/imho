@@ -116,6 +116,7 @@ export default {
     margin-bottom: 16px;
   }
   &__column {
+    border-radius: 16px;
     display: flex;
     align-items: center;
     width: 100%;
