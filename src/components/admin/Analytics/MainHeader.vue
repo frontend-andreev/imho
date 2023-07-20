@@ -232,6 +232,27 @@ export default {
   &__nav .main-filter__button::after {
     right: -8px;
   }
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    &__header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      row-gap: 16px;
+    }
+    &__filter {
+      display: inline-flex;
+      &:first-child,
+      &:nth-child(3) {
+        justify-self: start;
+      }
+      &:nth-child(2),
+      &:nth-child(4) {
+        justify-self: flex-end ;
+      }
+      .main-filter_margin {
+        margin: 0 !important;
+      }
+    }
+  }
   @media screen and (min-width: 320px) and (max-width: 1280px) {
     &__nav {
       .main-filter_margin {

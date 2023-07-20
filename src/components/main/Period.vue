@@ -8,6 +8,8 @@
     :rows="layout.rows"
     :columns="layout.columns"
     :is-dark="checkMode"
+    @input="hidedPopover"
+    :popover="{visibility: 'hover', hideDelay: 250}"
   >
     <template v-slot="{ inputValue, inputEvents }">
       <div class="period main-color">
@@ -65,7 +67,7 @@ export default {
         monthday: "Do",
       },
       attr: {
-        highlight: 'green'
+        highlight: "green",
       },
     };
   },
@@ -74,7 +76,6 @@ export default {
       getRange: "Main/getRange",
     }),
     checkMode() {
-      console.log(12323);
       return document.body.classList.contains("dark");
     },
   },
@@ -82,7 +83,6 @@ export default {
     getCustomDay(date) {
       const daysOfWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
       let i = new Date(date).getDay(date);
-      console.log(i);
       return daysOfWeek[i];
     },
   },
@@ -98,7 +98,7 @@ export default {
 </script>
 <style lang="scss">
 .vc-container {
-  --green-200: rgba(0, 150, 136, .22) !important;
+  --green-200: rgba(0, 150, 136, 0.22) !important;
   --green-600: rgba(0, 150, 136, 1) !important;
 }
 .period {

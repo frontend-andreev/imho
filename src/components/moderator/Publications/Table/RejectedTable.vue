@@ -38,7 +38,9 @@
         >
           <p>{{ item.title }}</p>
         </div>
-        <div class="publications-rejected-table__value main-table__column">
+        <div
+          class="publications-rejected-table__value main-table__column main-table__column_start"
+        >
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img src="@/assets/images/users/avatar2.png" alt="user" />
@@ -132,6 +134,9 @@ export default {
     }),
     filteredPublications() {
       return this.publications.filter((item) => item.status == "rejected");
+    },
+    isDark() {
+      return document.querySelector("body").classList.contains("dark");
     },
   },
   methods: {

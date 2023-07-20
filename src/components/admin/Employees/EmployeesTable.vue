@@ -138,7 +138,7 @@ export default {
   }
   &__row {
     display: grid;
-    grid-template-columns: 1fr 2fr 4fr 4fr 4fr 4fr;
+    grid-template-columns: 1fr 2fr 3fr 4fr 4fr 4fr;
     justify-items: center;
     align-items: center;
   }

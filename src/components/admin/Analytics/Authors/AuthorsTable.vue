@@ -121,7 +121,7 @@
             </li>
           </ul>
         </div>
-        <div class="analytics-authors-table__value main-table__column">
+        <div class="analytics-authors-table__value main-table__column main-table__column_start">
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img src="@/assets/images/users/avatar2.png" alt="user" />

@@ -19,7 +19,7 @@
                     background: item.color,
                     'font-weight': 400,
                     'font-size': '12px',
-                    padding: '2px 4px',
+                    padding: '4px 6px',
                   }
                 : undefined,
               item.weight ? { 'font-weight': item.weight } : undefined,
@@ -86,6 +86,7 @@ export default {
   &__property {
     font-size: 16px;
     font-weight: 700;
+    border-radius: 8px;
   }
   &__value {
     font-size: 14px;

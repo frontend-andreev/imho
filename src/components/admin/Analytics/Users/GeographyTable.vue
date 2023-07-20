@@ -376,6 +376,7 @@ export default {
     }
   }
   &__subcolumn {
+    border-radius: 0px 0px 0px 0px !important;
     &_big {
       display: flex;
       align-items: center;
@@ -386,6 +387,14 @@ export default {
   &__icon {
     display: flex;
     margin-left: 5px;
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    .main-table__column p {
+      font-size: 14px;
+    }
+    &__subcolumn p {
+      font-size: 10px !important;
+    }
   }
 }
 </style>

@@ -36,7 +36,9 @@
         <div class="publications-approved-table__value main-table__column">
           <p>{{ item.id.toLocaleString() }}</p>
         </div>
-        <div class="publications-approved-table__value main-table__title main-table__column">
+        <div
+          class="publications-approved-table__value main-table__title main-table__column"
+        >
           <p>{{ item.title }}</p>
         </div>
         <div class="publications-approved-table__value main-table__column">
@@ -56,7 +58,9 @@
             </li>
           </ul>
         </div>
-        <div class="publications-approved-table__value main-table__column">
+        <div
+          class="publications-approved-table__value main-table__column main-table__column_start"
+        >
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img src="@/assets/images/users/avatar2.png" alt="user" />
@@ -108,6 +112,14 @@
             <li v-for="elem in item.type" :key="elem">
               <div class="main-table__icon publications-approved-table__type">
                 <img
+                  v-if="elem.toLowerCase() == 'users' && isDark"
+                  :src="
+                    require(`@/assets/images/icons/${elem.toLowerCase()}White.svg`)
+                  "
+                  alt=""
+                />
+                <img
+                  v-else
                   :src="
                     require(`@/assets/images/icons/${elem.toLowerCase()}.svg`)
                   "
@@ -172,6 +184,9 @@ export default {
             this.availableCountries.includes(element)
           )
       );
+    },
+    isDark() {
+      return document.querySelector("body").classList.contains("dark");
     },
   },
   methods: {

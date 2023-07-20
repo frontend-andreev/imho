@@ -131,7 +131,7 @@
         <div class="analytics-publications-table__value main-table__column">
           <p>{{ item.id.toLocaleString() || "-" }}</p>
         </div>
-        <div class="analytics-publications-table__value main-table__column">
+        <div class="analytics-publications-table__value main-table__column main-table__column_start">
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img src="@/assets/images/users/avatar2.png" alt="user" />
@@ -345,10 +345,8 @@ export default {
   &__value {
     font-size: 14px;
     font-weight: 500;
-    text-align-last: left;
     p {
-      text-align: justify;
-      line-height: 21px;
+      text-align: left;
     }
   }
   @media screen and (min-width: 1280px) and (max-width: 1600px) {
@@ -361,7 +359,7 @@ export default {
       grid-template-columns: 4fr 1fr 4fr 2fr repeat(7, 1fr);
     }
     &__value p {
-      line-height:normal;
+      line-height: normal;
     }
   }
 }

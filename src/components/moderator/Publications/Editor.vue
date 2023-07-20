@@ -123,23 +123,6 @@
       </div>
     </div>
     <div class="publications-editor__block main-color">
-      <div class="publications-editor__row publications-editor__row_margin">
-        <ul class="publications-editor__list">
-          <li
-            v-for="country in countries"
-            :key="country"
-            class="publications-editor__country"
-            :class="{
-              'publications-editor__country_active':
-                currentArticle.availableCountries.includes(country),
-            }"
-          >
-            <p>{{ country }}</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="publications-editor__block main-color">
       <div class="publications-editor__row main-line">
         <h5 class="publications-editor__subtitme">Настройки</h5>
       </div>
@@ -664,7 +647,7 @@ export default {
     width: 25px;
     height: 22px;
     border: 1px solid #c0c0c0;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-left: 4px;
   }
   &__tag {

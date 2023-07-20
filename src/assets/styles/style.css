@@ -432,12 +432,15 @@ canvas {
 .main-table_white .main-table__column {
     box-shadow: 0 0 0 .8px #fff;
 }
+
 .main-table_white .main-table__column:first-child {
     border-top-left-radius: 8px;
 }
+
 .main-table_white .main-table__column:last-child {
     border-top-right-radius: 8px;
 }
+
 .main-table_white {
     border-radius: 8px 8px 0px 0px;
     background: #b90c0c;
@@ -458,6 +461,11 @@ canvas {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 0 .5px #C0C0C0;
+}
+
+.main-table__column_start {
+    text-align: left;
+    justify-content: start !important;
 }
 
 .main-table__title {
