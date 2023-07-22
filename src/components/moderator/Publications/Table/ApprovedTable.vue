@@ -112,9 +112,9 @@
             <li v-for="elem in item.type" :key="elem">
               <div class="main-table__icon publications-approved-table__type">
                 <img
-                  v-if="elem.toLowerCase() == 'users' && isDark"
+                  v-if="isDark"
                   :src="
-                    require(`@/assets/images/icons/${elem.toLowerCase()}White.svg`)
+                    require(`@/assets/images/icons/dark/${elem.toLowerCase()}.svg`)
                   "
                   alt=""
                 />

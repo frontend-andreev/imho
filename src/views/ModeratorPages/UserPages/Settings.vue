@@ -122,7 +122,12 @@
           </div>
           <div class="moderator-user-settings__block">
             <div class="moderator-user-settings__parameter">
-              <p><SunIcon /> Ночной режим</p>
+              <p>
+                <SunIconDark v-if="night" />
+                <SunIcon v-else/>
+
+                Ночной режим
+              </p>
             </div>
             <div class="moderator-user-settings__value">
               <input
@@ -144,6 +149,7 @@
 <script>
 import { mapGetters } from "vuex";
 import SunIcon from "@/assets/images/icons/sun.svg?inline";
+import SunIconDark from "@/assets/images/icons/dark/sun.svg?inline";
 export default {
   data() {
     return {
@@ -167,6 +173,7 @@ export default {
   },
   components: {
     SunIcon,
+    SunIconDark,
   },
 };
 </script>

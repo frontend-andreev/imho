@@ -156,10 +156,7 @@ export default {
         //   this.CurrentUser.availableCountries.includes(e)
         // )
       );
-    },
-    isDark() {
-      return document.querySelector("body").classList.contains("dark");
-    },
+    }
   },
   methods: {
     changeData(data) {

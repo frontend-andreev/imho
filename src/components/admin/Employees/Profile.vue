@@ -73,7 +73,8 @@
               >
                 <label for="EmployeesProfileName">
                   <div class="employees-profile__icon">
-                    <StarIcon />
+                    <StarIconDark v-if="isDark" />
+                    <StarIcon v-else />
                   </div>
                   <p>Имя(имя и отчество):</p>
                 </label>
@@ -97,7 +98,8 @@
               >
                 <label for="EmployeesProfileSurname">
                   <div class="employees-profile__icon">
-                    <StarIcon />
+                    <StarIconDark v-if="isDark" />
+                    <StarIcon v-else />
                   </div>
                   <p>Фамилия:</p>
                 </label>
@@ -121,7 +123,8 @@
               >
                 <label for="EmployeesProfileEmail">
                   <div class="employees-profile__icon">
-                    <StarIcon />
+                    <StarIconDark v-if="isDark" />
+                    <StarIcon v-else />
                   </div>
                   <p>e-mail:</p>
                 </label>
@@ -143,7 +146,8 @@
           <div class="employees-profile__block">
             <div class="employees-profile__subtitle">
               <div class="employees-profile__icon">
-                <StarIcon />
+                <StarIconDark v-if="isDark" />
+                <StarIcon v-else />
               </div>
               <h4>Доступ к публикациям</h4>
             </div>
@@ -185,7 +189,8 @@
             <div class="employees-profile__block">
               <div class="employees-profile__subtitle">
                 <div class="employees-profile__icon">
-                  <StarIcon />
+                  <StarIconDark v-if="isDark" />
+                  <StarIcon v-else />
                 </div>
                 <h4>Роли</h4>
               </div>
@@ -238,7 +243,8 @@
               class="employees-profile__subtitle employees-profile__subtitle_light"
             >
               <div class="employees-profile__icon">
-                <StarIcon />
+                <StarIconDark v-if="isDark" />
+                <StarIcon v-else />
               </div>
               <h4>Обязательно для заполнения</h4>
             </div>
@@ -355,8 +361,8 @@
 <script>
 import { mapActions } from "vuex";
 import ErrorIcon from "@/assets/images/icons/errorSmall.svg?inline";
-
 import StarIcon from "@/assets/images/icons/star.svg?inline";
+import StarIconDark from "@/assets/images/icons/dark/star.svg?inline";
 export default {
   props: {
     currentUser: {
@@ -405,6 +411,7 @@ export default {
   components: {
     StarIcon,
     ErrorIcon,
+    StarIconDark,
   },
   mounted() {
     if (this.$route.name == "AdminEmployeesView" && this.currentUser) {
@@ -423,7 +430,6 @@ export default {
       }
       if (action == "newUser") {
         this.CREATE_USER(this.changedUser);
-        // this.$router.push({ path: "/admin/Employees/list" });
       } else if (action == "saveChange") {
         this.CHANGE_USER(this.changedUser);
       }
@@ -498,6 +504,11 @@ export default {
       }
     },
     ...mapActions("Users", ["CREATE_USER", "CHANGE_USER"]),
+  },
+  computed: {
+    isDark() {
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
   watch: {
     currentUser(newValue) {
@@ -617,9 +628,6 @@ export default {
     font-size: 24px;
   }
   &__icon {
-    path {
-      stroke: #353132;
-    }
     margin-right: 10px;
   }
   &__roles {

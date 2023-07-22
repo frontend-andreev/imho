@@ -78,7 +78,7 @@
           @click="filteredItems.sort(sort_by('comments', parseInt))"
         >
           <div class="analytics-publications-table__icon">
-            <CommentsIcon />
+            <CommentIconDark />
           </div>
           <div class="analytics-publications-table__icon">
             <FilterArrowsIcon />
@@ -89,7 +89,7 @@
           @click="filteredItems.sort(sort_by('likes', parseInt))"
         >
           <div class="analytics-publications-table__icon">
-            <HeartIcon />
+            <HeartIconDark />
           </div>
           <div class="analytics-publications-table__icon">
             <FilterArrowsIcon />
@@ -100,7 +100,7 @@
           @click="filteredItems.sort(sort_by('share', parseInt))"
         >
           <div class="analytics-publications-table__icon">
-            <ShareIcon />
+            <ShareIconDark />
           </div>
           <div class="analytics-publications-table__icon">
             <FilterArrowsIcon />
@@ -111,7 +111,8 @@
           @click="filteredItems.sort(sort_by('later', parseInt))"
         >
           <div class="analytics-publications-table__icon">
-            <ClockIcon />
+            <ClockIconDark v-if="isDark" />
+            <ClockIcon v-else />
           </div>
           <div class="analytics-publications-table__icon">
             <FilterArrowsIcon />
@@ -131,7 +132,9 @@
         <div class="analytics-publications-table__value main-table__column">
           <p>{{ item.id.toLocaleString() || "-" }}</p>
         </div>
-        <div class="analytics-publications-table__value main-table__column main-table__column_start">
+        <div
+          class="analytics-publications-table__value main-table__column main-table__column_start"
+        >
           <div class="main-table-author">
             <div class="main-table-author__image">
               <img src="@/assets/images/users/avatar2.png" alt="user" />
@@ -214,11 +217,14 @@ import Paginator from "@/components/main/Paginator";
 import FilterArrowsIcon from "@/assets/images/icons/filterArrows.svg?inline";
 import ViewsIcon from "@/assets/images/icons/views.svg?inline";
 import UsersIcon from "@/assets/images/icons/whiteUsers.svg?inline";
-import FireIcon from "@/assets/images/icons/fire.svg?inline";
-import CommentsIcon from "@/assets/images/icons/comment.svg?inline";
-import HeartIcon from "@/assets/images/icons/heart.svg?inline";
-import ShareIcon from "@/assets/images/icons/share.svg?inline";
+import FireIcon from "@/assets/images/icons/dark/fireWhite.svg?inline";
 import ClockIcon from "@/assets/images/icons/clock.svg?inline";
+
+import CommentIconDark from "@/assets/images/icons/dark/comment.svg?inline";
+import HeartIconDark from "@/assets/images/icons/dark/heart.svg?inline";
+import ShareIconDark from "@/assets/images/icons/dark/share.svg?inline";
+import ClockIconDark from "@/assets/images/icons/dark/clock.svg?inline";
+
 export default {
   props: {
     items: {
@@ -250,10 +256,11 @@ export default {
     ViewsIcon,
     UsersIcon,
     FireIcon,
-    CommentsIcon,
-    HeartIcon,
-    ShareIcon,
     ClockIcon,
+    CommentIconDark,
+    HeartIconDark,
+    ShareIconDark,
+    ClockIconDark,
     Paginator,
   },
   mounted() {
@@ -308,6 +315,9 @@ export default {
     getAuthors() {
       return this.authors;
     },
+    isDark() {
+      return document.querySelector("body").classList.contains("dark");
+    },
   },
   watch: {
     publications(newValue) {
@@ -351,12 +361,15 @@ export default {
   }
   @media screen and (min-width: 1280px) and (max-width: 1600px) {
     &__row {
-      grid-template-columns: 4fr 1fr 3fr 2fr repeat(7, 1fr);
+      grid-template-columns: 3fr 1fr 3fr 2fr repeat(7, 1fr);
+    }
+    &__value p {
+      font-size: 12px;
     }
   }
   @media screen and (min-width: 320px) and (max-width: 1280px) {
     &__row {
-      grid-template-columns: 4fr 1fr 4fr 2fr repeat(7, 1fr);
+      grid-template-columns: 3fr 1fr 3fr 2fr repeat(7, 1fr);
     }
     &__value p {
       line-height: normal;

@@ -48,13 +48,11 @@
               class="moderator-user-kpi__line"
               :styles="{ height: '300px' }"
               :style="[
-                Container.width < 1068 && $route.query.period == 'month'
-                  ? { width: '1728px' }
-                  : Container.width <= 850 && $route.query.period == 'year'
-                  ? { width: '768px' }
-                  : Container.width <= 632 && $route.query.period == 'week'
-                  ? { width: '600px' }
-                  : false,
+                $route.query.period == 'month'
+                  ? { width: '2000px' }
+                  : ($route.query.period == 'week' || $route.query.period == 'year') && Container.width < 850
+                  ? { width: '850px' }
+                  : false
               ]"
             ></line-chart>
           </div>
@@ -107,6 +105,7 @@ export default {
   &__content {
     margin-top: 16px;
     padding: 16px;
+    border-radius: 16px;
   }
   &__row {
     display: flex;
@@ -154,6 +153,7 @@ export default {
   }
   &__graph {
     width: 100%;
+    overflow: auto;
   }
   &__list {
     display: flex;

@@ -258,7 +258,7 @@ export default {
   }
   &__row {
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr 3fr repeat(9, 1fr);
+    grid-template-columns: 1fr 3fr 3fr 2fr repeat(9, 1fr);
     align-items: center;
     justify-content: center;
   }
@@ -276,6 +276,17 @@ export default {
   &__value {
     font-size: 14px;
     font-weight: 500;
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    &__parameter {
+      font-size: 11px;
+    }
+    &__value {
+      font-size: 12px;
+    }
+    &__row {
+      grid-template-columns: 1fr 2fr 2fr 2fr repeat(9, 1fr);
+    }
   }
 }
 </style>

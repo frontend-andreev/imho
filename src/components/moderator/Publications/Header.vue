@@ -141,7 +141,12 @@
         </div>
       </div>
       <div class="moder-publications-top__block">
-        <div class="moder-publications-top__filter">
+        <div class="moder-publications-top__filter" v-if="isDark">
+          <button><RefreshIconDark /></button>
+          <button><PenIconDark /></button>
+          <button><DotsIconDark /></button>
+        </div>
+        <div class="moder-publications-top__filter" v-else>
           <button><RefreshIcon /></button>
           <button><PenIcon /></button>
           <button><DotsIcon /></button>
@@ -154,8 +159,11 @@
 import Period from "@/components/main/Period.vue";
 // import ArrowDownIcon from "@/assets/images/icons/arrowDown.svg?inline";
 import PenIcon from "@/assets/images/icons/pen.svg?inline";
+import PenIconDark from "@/assets/images/icons/dark/pen.svg?inline";
 import RefreshIcon from "@/assets/images/icons/refresh.svg?inline";
+import RefreshIconDark from "@/assets/images/icons/dark/refresh.svg?inline";
 import DotsIcon from "@/assets/images/icons/dots.svg?inline";
+import DotsIconDark from "@/assets/images/icons/dark/dots.svg?inline";
 import { mapGetters } from "vuex";
 export default {
   data() {
@@ -167,8 +175,11 @@ export default {
     Period,
     // ArrowDownIcon,
     PenIcon,
+    PenIconDark,
     RefreshIcon,
+    RefreshIconDark,
     DotsIcon,
+    DotsIconDark
   },
   mounted() {
     let scroll = document.querySelector(
@@ -188,6 +199,9 @@ export default {
     ...mapGetters({
       Container: "Main/getSizeOfContainer",
     }),
+    isDark(){
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
   watch: {
     textForPeriod(newValue) {

@@ -204,7 +204,7 @@
               @click="showDropDown = !showDropDown"
             >
               Аналитика
-              <arrowDownIcon />
+              <arrowDownIconDark />
             </p>
             <ul class="header-body__dropdown" :class="{'header-body__dropdown_active': showDropDown}">
               <li class="header-body__link">
@@ -271,7 +271,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
-import arrowDownIcon from "@/assets/images/icons/arrowDown.svg?inline";
+import arrowDownIconDark from "@/assets/images/icons/dark/arrowDown.svg?inline";
 import SunIcon from "@/assets/images/icons/sun.svg?inline";
 
 export default {
@@ -326,7 +326,7 @@ export default {
     });
   },
   components: {
-    arrowDownIcon,
+    arrowDownIconDark,
     SunIcon,
   },
 };

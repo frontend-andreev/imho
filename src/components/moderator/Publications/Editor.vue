@@ -3,7 +3,10 @@
     <div class="publications-editor__block main-color">
       <div class="publications-editor__row main-line">
         <h5 class="publications-editor__title">Информация о статье</h5>
-        <div class="publications-editor__icon"><ArchiveIcon /></div>
+        <div class="publications-editor__icon">
+          <ArchiveIconDark v-if="isDark" />
+          <ArchiveIcon v-else />
+        </div>
       </div>
       <div class="publications-editor__row">
         <div class="publications-editor__info">
@@ -117,7 +120,8 @@
     <div class="publications-editor__block main-color">
       <div class="publications-editor__row publications-editor__row_center">
         <button class="publications-editor__button">
-          <PenIcon />
+          <PenIconDark v-if="isDark" />
+          <PenIcon v-else />
           <p>Внести правки в статью самостоятельно</p>
         </button>
       </div>
@@ -191,7 +195,8 @@
             v-model="currentTag"
           />
           <button class="publications-editor__add" @click="addTag">
-            <PlusIcon />
+            <PlusIconDark v-if="isDark" />
+            <PlusIcon v-else />
           </button>
         </div>
       </div>
@@ -199,7 +204,8 @@
         <div class="publications-editor__value">
           <ul class="publications-editor__list">
             <li class="publications-editor__tag" v-for="tag in tags" :key="tag">
-              <CloseIcon @click="deleteTag(tag)" />
+              <CloseIconDark v-if="isDark" @click="deleteTag(tag)" />
+              <CloseIcon v-else @click="deleteTag(tag)" />
               <p>{{ tag }}</p>
             </li>
           </ul>
@@ -320,7 +326,8 @@
           <div
             class="publications-editor__icon publications-editor__icon_absolute"
           >
-            <ChatIcon />
+          <ChatIconDark v-if="isDark" />
+          <ChatIcon v-else />
           </div>
         </div>
       </div>
@@ -405,8 +412,15 @@ import ArchiveIcon from "@/assets/images/icons/archive.svg?inline";
 import PenIcon from "@/assets/images/icons/pen.svg?inline";
 import PlusIcon from "@/assets/images/icons/plus.svg?inline";
 import ChatIcon from "@/assets/images/icons/chat.svg?inline";
-import SingleDate from "@/components/main/SingleDate";
 import CloseIcon from "@/assets/images/icons/close.svg?inline";
+
+import ArchiveIconDark from "@/assets/images/icons/dark/archive.svg?inline";
+import PenIconDark from "@/assets/images/icons/dark/pen.svg?inline";
+import PlusIconDark from "@/assets/images/icons/dark/plus.svg?inline";
+import ChatIconDark from "@/assets/images/icons/dark/chat.svg?inline";
+import CloseIconDark from "@/assets/images/icons/dark/close.svg?inline";
+
+import SingleDate from "@/components/main/SingleDate";
 import { mapGetters } from "vuex";
 export default {
   data() {
@@ -432,6 +446,12 @@ export default {
     PlusIcon,
     CloseIcon,
     ChatIcon,
+
+    ArchiveIconDark,
+    PenIconDark,
+    PlusIconDark,
+    CloseIconDark,
+    ChatIconDark,
     SingleDate,
   },
   computed: {
@@ -450,6 +470,9 @@ export default {
         return this.user.availableCountries;
       }
     },
+    isDark() {
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
   methods: {
     addTag() {

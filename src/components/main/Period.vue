@@ -8,7 +8,6 @@
     :rows="layout.rows"
     :columns="layout.columns"
     :is-dark="checkMode"
-    @input="hidedPopover"
     :popover="{visibility: 'hover', hideDelay: 250}"
   >
     <template v-slot="{ inputValue, inputEvents }">

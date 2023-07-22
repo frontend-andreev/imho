@@ -1,8 +1,13 @@
 <template>
   <div class="autocomplete">
+    <CloseIconDark
+      @click="$emit('close', index)"
+      v-if="close && isDark"
+      class="autocomplete__icon"
+    />
     <CloseIcon
       @click="$emit('close', index)"
-      v-if="close"
+      v-else-if="close"
       class="autocomplete__icon"
     />
     <input
@@ -36,6 +41,7 @@
   
 <script>
 import CloseIcon from "@/assets/images/icons/close.svg?inline";
+import CloseIconDark from "@/assets/images/icons/dark/close.svg?inline"
 export default {
   name: "SearchAutocomplete",
   props: {
@@ -87,6 +93,7 @@ export default {
   },
   components: {
     CloseIcon,
+    CloseIconDark
   },
   data() {
     return {
@@ -161,6 +168,11 @@ export default {
       this.$emit("select", this.search);
     },
   },
+  computed: {
+    isDark(){
+      return document.querySelector('body').classList.contains('dark')
+    }
+  }
 };
 </script>
   
@@ -188,7 +200,7 @@ export default {
 .autocomplete__icon {
   position: absolute;
   left: 5px;
-  top: 50%;
+  top: 52%;
   transform: translateY(-50%);
   cursor: pointer;
 }

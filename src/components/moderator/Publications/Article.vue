@@ -12,7 +12,8 @@
         </div>
         <div class="view-header__column">
           <div class="view-header__item">
-            <HeadphonesIcon />
+            <HeadphonesIconDark v-if="isDark" />
+            <HeadphonesIcon v-else />
           </div>
           <div class="view-header__item">
             <BookmarkIcon />
@@ -21,7 +22,8 @@
             <span>24.04.2021</span>
           </div>
           <div class="view-header__item">
-            <DotsIcon />
+            <DotsIconDark v-if="isDark" />
+            <DotsIcon v-else />
           </div>
         </div>
       </div>
@@ -64,19 +66,22 @@
           </div>
           <div class="view-bottom__item">
             <div class="view-bottom__icon">
-              <UsersIcon />
+              <UsersIconDark v-if="isDark" />
+              <UsersIcon v-else />
             </div>
             <span>12</span>
           </div>
           <div class="view-bottom__item">
             <div class="view-bottom__icon">
-              <CommentIcon />
+              <CommentIconDark v-if="isDark" />
+              <CommentIcon v-else />
             </div>
             <span>12</span>
           </div>
           <div class="view-bottom__item">
             <div class="view-bottom__icon">
-              <ShareIcon />
+              <ShareIconDark v-if="isDark" />
+              <ShareIcon v-else />
             </div>
           </div>
         </div>
@@ -95,7 +100,8 @@
           </div>
           <div class="view-header__column">
             <div class="view-header__item">
-              <HeadphonesIcon />
+              <HeadphonesIconDark v-if="isDark" />
+              <HeadphonesIcon v-else />
             </div>
             <div class="view-header__item">
               <BookmarkIcon />
@@ -104,7 +110,7 @@
               <span>24.04.2021</span>
             </div>
             <div class="view-header__item">
-              <DotsIcon />
+              <DotsIconDark v-if="isDark" />
             </div>
           </div>
         </div>
@@ -132,19 +138,22 @@
           <div class="article-author__column">
             <div class="article-author__item">
               <div class="article-author__icon">
-                <Heart />
+                <HeartIconDark v-if="isDark" />
+                <Heart v-else />
               </div>
               <span>12</span>
             </div>
             <div class="article-author__item">
               <div class="article-author__icon">
-                <UsersIcon />
+                <UsersIconDark v-if="isDark" />
+                <UsersIcon v-else />
               </div>
               <span>12</span>
             </div>
             <div class="article-author__item">
               <div class="article-author__icon">
-                <CommentIcon />
+                <CommentIconDark v-if="isDark" />
+                <CommentIcon v-else />
               </div>
               <span>12</span>
             </div>
@@ -221,15 +230,18 @@
           <div class="view-footer__icons view-footer__row">
             <div class="view-footer__column">
               <div class="view-footer__icon">
-                <Heart />
+                <HeartIconDark v-if="isDark" />
+                <Heart v-else />
                 <span>12</span>
               </div>
               <div class="view-footer__icon">
-                <UsersIcon />
+                <UsersIconDark v-if="isDark" />
+                <UsersIcon v-else />
                 <span>12</span>
               </div>
               <div class="view-footer__icon">
-                <CommentIcon />
+                <CommentIconDark v-if="isDark" />
+                <CommentIcon v-else />
                 <span>12</span>
               </div>
             </div>
@@ -238,7 +250,8 @@
                 <ShareIcon />
               </div>
               <div class="view-footer__icon">
-                <BookmarkEmptyIcon />
+                <BookmarkEmptyIconDark v-if="isDark" />
+                <BookmarkEmptyIcon v-else />
               </div>
             </div>
           </div>
@@ -260,13 +273,20 @@
 import HeadphonesIcon from "@/assets/images/icons/headphones.svg?inline";
 import BookmarkIcon from "@/assets/images/icons/bookmark.svg?inline";
 import BookmarkEmptyIcon from "@/assets/images/icons/bookmarkEmpty.svg?inline";
-
 import DotsIcon from "@/assets/images/icons/dots.svg?inline";
 import HeartIcon from "@/assets/images/icons/heartFull.svg?inline";
 import UsersIcon from "@/assets/images/icons/users.svg?inline";
 import CommentIcon from "@/assets/images/icons/comment.svg?inline";
 import ShareIcon from "@/assets/images/icons/share.svg?inline";
 import Heart from "@/assets/images/icons/heart.svg?inline";
+
+import HeadphonesIconDark from "@/assets/images/icons/dark/headphones.svg?inline";
+import BookmarkEmptyIconDark from "@/assets/images/icons/dark/bookmarkEmpty.svg?inline";
+import DotsIconDark from "@/assets/images/icons/dark/dots.svg?inline";
+import UsersIconDark from "@/assets/images/icons/dark/users.svg?inline";
+import CommentIconDark from "@/assets/images/icons/dark/comment.svg?inline";
+import ShareIconDark from "@/assets/images/icons/dark/share.svg?inline";
+import HeartIconDark from "@/assets/images/icons/dark/heart.svg?inline";
 export default {
   components: {
     HeadphonesIcon,
@@ -278,6 +298,19 @@ export default {
     CommentIcon,
     ShareIcon,
     Heart,
+
+    HeadphonesIconDark,
+    DotsIconDark,
+    BookmarkEmptyIconDark,
+    UsersIconDark,
+    CommentIconDark,
+    ShareIconDark,
+    HeartIconDark,
+  },
+  computed: {
+    isDark() {
+      return document.querySelector("body").classList.contains("dark");
+    },
   },
 };
 </script>
@@ -304,9 +337,6 @@ export default {
     }
     &__item {
       margin-right: 8px;
-      svg path {
-        fill: #353132;
-      }
     }
     &__icon {
       margin-right: 10px;
@@ -353,7 +383,7 @@ export default {
   }
 }
 .view {
-  height: 1200px;
+  height: 1151px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -442,9 +472,6 @@ export default {
       column-gap: 8px;
     }
     &__icon {
-      svg path {
-        fill: #353132;
-      }
       span {
         margin-left: 8px;
       }
@@ -493,12 +520,6 @@ export default {
           margin-right: 10px;
         }
       }
-      &:nth-child(3),
-      &:last-child {
-        svg path {
-          fill: #353132;
-        }
-      }
     }
   }
   .main-table-author__tag {
@@ -518,8 +539,11 @@ export default {
       background: #ddffe4;
     }
   }
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    height: 1195px;
+  }
   @media screen and (min-width: 850px) and (max-width: 1280px) {
-    height: 1358px;
+    height: 1272px;
   }
   @media screen and (min-width: 320px) and (max-width: 850px) {
     height: 100%;

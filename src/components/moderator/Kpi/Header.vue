@@ -58,7 +58,12 @@
           </div>
         </div>
       </div>
-      <div class="moderator-top-header__column moderator-top-header__filter">
+      <div class="moderator-top-header__column moderator-top-header__filter" v-if="isDark">
+        <button><RefreshIconDark /></button>
+        <button><PenIconDark /></button>
+        <button><DotsIconDark /></button>
+      </div>
+      <div class="moderator-top-header__column moderator-top-header__filter" v-else>
         <button><RefreshIcon /></button>
         <button><PenIcon /></button>
         <button><DotsIcon /></button>
@@ -71,6 +76,9 @@ import Period from "@/components/main/Period";
 import PenIcon from "@/assets/images/icons/pen.svg?inline";
 import RefreshIcon from "@/assets/images/icons/refresh.svg?inline";
 import DotsIcon from "@/assets/images/icons/dots.svg?inline";
+import PenIconDark from "@/assets/images/icons/dark/pen.svg?inline";
+import RefreshIconDark from "@/assets/images/icons/dark/refresh.svg?inline";
+import DotsIconDark from "@/assets/images/icons/dark/dots.svg?inline";
 export default {
   data() {
     return {
@@ -82,7 +90,15 @@ export default {
     PenIcon,
     RefreshIcon,
     DotsIcon,
+    PenIconDark,
+    RefreshIconDark,
+    DotsIconDark,
   },
+  computed: {
+    isDark(){
+      return document.querySelector('body').classList.contains('dark')
+    }
+  }
 };
 </script>
 <style lang="scss">

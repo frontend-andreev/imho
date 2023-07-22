@@ -134,10 +134,7 @@ export default {
     }),
     filteredPublications() {
       return this.publications.filter((item) => item.status == "rejected");
-    },
-    isDark() {
-      return document.querySelector("body").classList.contains("dark");
-    },
+    }
   },
   methods: {
     changeData(data) {

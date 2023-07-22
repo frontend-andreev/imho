@@ -34,7 +34,7 @@
         >
           <p>Автор</p>
           <div class="analytics-users-table__icon">
-            <ArrowDownIcon />
+            <ArrowDownIconDark />
           </div>
           <span class="analytics-users-table__author">
             Александр Тиханский
@@ -46,7 +46,7 @@
         >
           <p>Тип</p>
           <div class="analytics-users-table__icon">
-            <ArrowDownIcon />
+            <ArrowDownIconDark />
           </div>
         </div>
         <div
@@ -127,7 +127,7 @@
 </template>
 <script>
 import FilterArrowsIcon from "@/assets/images/icons/filterArrows.svg?inline";
-import ArrowDownIcon from "@/assets/images/icons/arrowDown.svg?inline";
+import ArrowDownIconDark from "@/assets/images/icons/dark/arrowDown.svg?inline";
 import Paginator from "@/components/main/Paginator";
 import { mapGetters } from "vuex";
 export default {
@@ -157,7 +157,7 @@ export default {
   },
   components: {
     FilterArrowsIcon,
-    ArrowDownIcon,
+    ArrowDownIconDark,
     Paginator,
   },
   methods: {

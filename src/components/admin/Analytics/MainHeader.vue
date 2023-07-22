@@ -130,10 +130,12 @@
     <div class="admin-analytics__filter">
       <div class="admin-analytics__events">
         <div class="admin-analytics__icon">
-          <RefreshIcon />
+          <RefreshIconDark v-if="isDark" />
+          <RefreshIcon v-else />
         </div>
         <div class="admin-analytics__icon">
-          <DotsIcon />
+          <DotsIconDark v-if="isDark" />
+          <DotsIcon v-else />
         </div>
       </div>
     </div>
@@ -142,6 +144,8 @@
 <script>
 import RefreshIcon from "@/assets/images/icons/refresh.svg?inline";
 import DotsIcon from "@/assets/images/icons/dots.svg?inline";
+import RefreshIconDark from "@/assets/images/icons/dark/refresh.svg?inline";
+import DotsIconDark from "@/assets/images/icons/dark/dots.svg?inline";
 import Period from "@/components/main/Period.vue";
 import { mapGetters } from "vuex";
 export default {
@@ -159,6 +163,8 @@ export default {
   components: {
     RefreshIcon,
     DotsIcon,
+    RefreshIconDark,
+    DotsIconDark,
     Period,
   },
   mounted() {
@@ -187,6 +193,9 @@ export default {
     ...mapGetters({
       Container: "Main/getSizeOfContainer",
     }),
+    isDark(){
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
 };
 </script>
@@ -213,15 +222,19 @@ export default {
   }
   &__nav {
     column-gap: 8px;
+    .main-filter__block {
+      display: flex;
+      padding: 6px 4px 6px 4px;
+    }
     .main-filter__block_active {
       margin-right: 10px;
       width: auto;
       .main-filter__button {
         &::after {
-          right: 0;
+          right: -6px;
         }
         &_active::after {
-          right: -5px;
+          right: -6px;
         }
         &:last-child::after {
           right: -11px;
@@ -230,7 +243,7 @@ export default {
     }
   }
   &__nav .main-filter__button::after {
-    right: -8px;
+    right: -7px;
   }
   @media screen and (min-width: 1280px) and (max-width: 1600px) {
     &__header {
@@ -246,7 +259,7 @@ export default {
       }
       &:nth-child(2),
       &:nth-child(4) {
-        justify-self: flex-end ;
+        justify-self: flex-end;
       }
       .main-filter_margin {
         margin: 0 !important;

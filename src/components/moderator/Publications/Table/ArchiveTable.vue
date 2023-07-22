@@ -152,9 +152,9 @@
             <li v-for="elem in item.type" :key="elem">
               <div class="main-table__icon publications-approved-table__type">
                 <img
-                  v-if="elem.toLowerCase() == 'users' && isDark"
+                  v-if="isDark"
                   :src="
-                    require(`@/assets/images/icons/${elem.toLowerCase()}White.svg`)
+                    require(`@/assets/images/icons/dark/${elem.toLowerCase()}.svg`)
                   "
                   alt=""
                 />
@@ -179,7 +179,8 @@
           </div>
         </div>
         <div class="publications-archive-table__value main-table__column">
-          <ArchiveIcon />
+          <ArchiveIconDark v-if="isDark" />
+          <ArchiveIcon v-else />
         </div>
       </router-link>
     </div>
@@ -194,6 +195,7 @@ import { mapGetters } from "vuex";
 import Paginator from "@/components/main/Paginator";
 import FilterArrowsIcon from "@/assets/images/icons/filterArrows.svg?inline";
 import ArchiveIcon from "@/assets/images/icons/archive.svg?inline";
+import ArchiveIconDark from "@/assets/images/icons/dark/archive.svg?inline";
 export default {
   props: {
     publications: {
@@ -213,6 +215,7 @@ export default {
     Paginator,
     FilterArrowsIcon,
     ArchiveIcon,
+    ArchiveIconDark
   },
   computed: {
     ...mapGetters({

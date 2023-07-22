@@ -8,7 +8,8 @@
         >
           <p>№</p>
           <div class="analytics-geography-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark" />
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -17,7 +18,8 @@
         >
           <p>Страна</p>
           <div class="analytics-geography-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark" />
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -26,7 +28,8 @@
         >
           <p>Всего авторов</p>
           <div class="analytics-geography-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark" />
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -41,7 +44,8 @@
             >
               <p>Мужчины</p>
               <div class="analytics-geography-table__icon">
-                <FilterArrowsIcon />
+                <FilterArrowsIconDark v-if="isDark" />
+                <FilterArrowsIcon v-else />
               </div>
             </div>
           </div>
@@ -100,7 +104,8 @@
             >
               <p>Женщины</p>
               <div class="analytics-geography-table__icon">
-                <FilterArrowsIcon />
+                <FilterArrowsIconDark v-if="isDark" />
+                <FilterArrowsIcon v-else />
               </div>
             </div>
           </div>
@@ -215,6 +220,7 @@
 </template> 
 <script>
 import FilterArrowsIcon from "@/assets/images/icons/filterArrows.svg?inline";
+import FilterArrowsIconDark from "@/assets/images/icons/dark/filterArrows.svg?inline";
 import Paginator from "@/components/main/Paginator";
 import { mapGetters } from "vuex";
 export default {
@@ -265,6 +271,7 @@ export default {
   },
   components: {
     FilterArrowsIcon,
+    FilterArrowsIconDark,
     Paginator,
   },
   methods: {
@@ -330,6 +337,11 @@ export default {
     ...mapGetters({
       availableCountries: "Main/getAvailableCountries",
     }),
+    computed: {
+      isDark(){
+        return document.querySelector('body').classList.contains('dark')
+      }
+    }
   },
   watch: {
     authors(newValue) {

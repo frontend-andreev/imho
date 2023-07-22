@@ -8,7 +8,8 @@
         >
           <p>Id</p>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -19,7 +20,8 @@
         >
           <p>Страна</p>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -28,7 +30,7 @@
         >
           <p>Автор</p>
           <div class="analytics-authors-table__icon">
-            <ArrowDownIcon />
+            <ArrowDownIconDark />
           </div>
         </div>
         <div
@@ -41,7 +43,8 @@
         >
           <p>Посл. актив</p>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -50,7 +53,8 @@
         >
           <p>Кол-во Публ.</p>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -59,7 +63,8 @@
         >
           <p>Жалобы</p>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -67,10 +72,11 @@
           @click="filteredItems.sort(sort_by('humanComments', parseInt))"
         >
           <div class="analytics-authors-table__icon">
-            <CommentIcon />
+            <CommentIconDark  />
           </div>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark v-if="isDark"/>
+            <FilterArrowsIcon v-else />
           </div>
         </div>
         <div
@@ -79,7 +85,7 @@
         >
           <p>Р. Спикера</p>
           <div class="analytics-authors-table__icon">
-            <CommentIcon />
+            <CommentIconDark/>
           </div>
         </div>
         <div
@@ -87,10 +93,10 @@
           @click="filteredItems.sort(sort_by('favourite', (a) => a.length))"
         >
           <div class="analytics-authors-table__icon">
-            <HeartIcon />
+            <HeartIconDark />
           </div>
           <div class="analytics-authors-table__icon">
-            <FilterArrowsIcon />
+            <FilterArrowsIconDark/>
           </div>
         </div>
       </div>
@@ -178,9 +184,10 @@
 </template>
   <script>
 import FilterArrowsIcon from "@/assets/images/icons/filterArrows.svg?inline";
-import ArrowDownIcon from "@/assets/images/icons/arrowDown.svg?inline";
-import CommentIcon from "@/assets/images/icons/comment.svg?inline";
-import HeartIcon from "@/assets/images/icons/heart.svg?inline";
+import FilterArrowsIconDark from "@/assets/images/icons/dark/filterArrows.svg?inline";
+import ArrowDownIconDark from "@/assets/images/icons/dark/arrowDown.svg?inline";
+import CommentIconDark from "@/assets/images/icons/dark/comment.svg?inline";
+import HeartIconDark from "@/assets/images/icons/dark/heart.svg?inline";
 import Paginator from "@/components/main/Paginator";
 import { mapGetters } from "vuex";
 export default {
@@ -192,9 +199,10 @@ export default {
   },
   components: {
     FilterArrowsIcon,
-    ArrowDownIcon,
-    CommentIcon,
-    HeartIcon,
+    FilterArrowsIconDark,
+    ArrowDownIconDark,
+    CommentIconDark,
+    HeartIconDark,
     Paginator,
   },
   data() {
@@ -254,6 +262,9 @@ export default {
       availableCountries: "Main/getAvailableCountries",
       currentUser: "Users/getCurrentUser",
     }),
+    isDark(){
+      return document.querySelector('body').classList.contains('dark')
+    }
   },
   watch: {
     authors(newValue) {

@@ -7,6 +7,7 @@ export default {
   extends: Bar,
   data() {
     return {
+      // changed: false,
       options: {
         cornerRadius: 16,
         plugins: {
@@ -46,7 +47,7 @@ export default {
               ticks: {
                 display: true,
                 maxRotation: 0,
-                fontSize: this.$route.query.period != "month" ? 12 : 8,
+                fontSize: 12,
                 fontColor: document
                   .querySelector("body")
                   .classList.contains("dark")
@@ -54,7 +55,10 @@ export default {
                   : "#231F20",
                 callback: function (label) {
                   if (/\s/.test(label)) {
-                    return label.split(" ");
+                    return [
+                      label.split(" ", 1).toString(),
+                      label.split(" ").slice(1).join(" "),
+                    ];
                   } else {
                     return label;
                   }
@@ -109,7 +113,7 @@ export default {
           "Декабрь (32)",
         ];
       } else if (period == "all") {
-        return ["2021(39 778)", "2022(13 978)", "2023(65 571)"];
+        return ["2021 (39 778)", "2022 (13 978)", "2023 (65 571)"];
       }
       return [
         "01.02.2022 (32)",
@@ -141,6 +145,9 @@ export default {
         "06.02.2022 (99)",
         "07.02.2022 (12)",
       ];
+    },
+    chart() {
+      return this._data._chart;
     },
     values() {
       let period = this.$route.query.period;
@@ -199,6 +206,7 @@ export default {
         },
         this.options
       );
+      this.chart.update()
     },
   },
   mounted() {
@@ -267,7 +275,7 @@ export default {
 
       ctx.beginPath();
       ctx.fillStyle = vm.backgroundColor;
-      ctx.strokeStyle = 'transparent';
+      ctx.strokeStyle = "transparent";
       // ctx.lineWidth = -10;
 
       // Corner points, from bottom-left to bottom-right clockwise
@@ -362,6 +370,13 @@ export default {
     labels() {
       this.createGraph();
     },
+    // chart(){
+    //   this.changed = true
+    //   if (this.changed) {
+    //     this.chart.destroy();
+    //     this.createGraph()
+    //   }
+    // }
   },
 };
 </script>

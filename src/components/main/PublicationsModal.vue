@@ -14,7 +14,13 @@
           <p>Заголовок</p>
         </div>
         <div class="publications-modal__value main-table__column">
-          <p>{{ currentArticle.title }}</p>
+          <router-link
+            :to="{
+              name: 'PublicationsArticle',
+              params: { id: currentArticle.id },
+            }"
+            ><p>{{ currentArticle.title }}</p></router-link
+          >
         </div>
       </div>
       <div class="publications-modal__row">
@@ -248,8 +254,8 @@ export default {
       Container: "Main/getSizeOfContainer",
     }),
     Mode() {
-      return document.querySelector('body').classList.contains('dark')
-    }
+      return document.querySelector("body").classList.contains("dark");
+    },
   },
 };
 </script>
@@ -350,7 +356,7 @@ export default {
   &_top {
     right: 50% !important;
     transform: translateX(50%);
-    top: 50%; 
+    top: 50%;
     .publications-modal__content {
       &::after {
         left: 50%;
