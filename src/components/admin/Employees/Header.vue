@@ -44,6 +44,13 @@
     font-weight: 700;
     color: #353132;
   }
+  &__filter {
+    .main-filter__button:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
   @media screen and (min-width: 320px) and (max-width: 1280px) {
     &__title {
       font-size: 16px !important;
