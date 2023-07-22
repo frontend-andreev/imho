@@ -357,7 +357,7 @@ export default {
 .analytics-geography-table {
   &__row {
     display: grid;
-    grid-template-columns: 1fr 2fr 3fr 8fr 8fr;
+    grid-template-columns: 1fr 2fr 3fr 7fr 7fr;
     justify-items: center;
     align-items: center;
   }
