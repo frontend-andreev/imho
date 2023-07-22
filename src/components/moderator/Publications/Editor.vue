@@ -688,6 +688,7 @@ export default {
   &__list.main-table__list {
     width: auto;
     justify-content: start;
+    row-gap: 15px;
     li {
       display: flex;
       align-items: center;

@@ -237,13 +237,13 @@ export default {
           right: -6px;
         }
         &:last-child::after {
-          right: -11px;
+          right: -17px;
         }
       }
     }
   }
   &__nav .main-filter__button::after {
-    right: -7px;
+    right: -9px;
   }
   @media screen and (min-width: 1280px) and (max-width: 1600px) {
     &__header {
